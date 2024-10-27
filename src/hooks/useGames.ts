@@ -8,7 +8,7 @@ interface Game {
 
 }
 
-interface FetchGamesResponce {
+interface FetchGamesResponse {
     count: number;
     results: Game[];
 }
@@ -18,7 +18,7 @@ const useGames = () => {
     const [error, setError] = useState("");
     useEffect(() => {
         const controller = new AbortController();
-        apiClient.get<FetchGamesResponce>('/games', {signal: controller.signal})
+        apiClient.get<FetchGamesResponse>('/games', {signal: controller.signal})
             .then(res => setGames(res.data.results))
             .catch(err => {
                 if (err instanceof CanceledError) return
