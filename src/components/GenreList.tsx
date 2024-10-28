@@ -7,10 +7,10 @@ const GenreList = () => {
 
     const {data, error, isLoading} = useGenres();
 
+    if (error) return null;
+    if (isLoading) return <Spinner/>;
     return (
         <>
-            {error && null}
-            {isLoading && <Spinner/>}
             <List>
                 {data.map(genre => (
                     <ListItem key={genre.id} paddingY="5px">
@@ -22,6 +22,6 @@ const GenreList = () => {
                 ))}
             </List>
         </>
-    )
+    );
 }
 export default GenreList;
