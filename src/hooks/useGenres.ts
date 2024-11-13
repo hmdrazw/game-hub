@@ -1,4 +1,4 @@
-import useData from "./useData.ts";
+import genre from "../data/genre.ts";
 
 
 export interface Genre {
@@ -8,6 +8,6 @@ export interface Genre {
 }
 
 
-const useGenres = () => useData<Genre>('genres');
+const useGenres = () => ({data: genre, isLoading: false, error: false});
 
 export default useGenres;
